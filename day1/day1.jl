@@ -37,11 +37,11 @@ function passfunc(filedir::String)
 end
 
 function run()
-    test = passfunc("$currDIR/day1-1ex.txt")
+    test = passfunc("$currDIR/day1ex.txt")
     if test == 6
         println("Test ex passed: $test")
     end
-    @time test = passfunc("$currDIR/day1-1.txt")
+    @time test = passfunc("$currDIR/day1.txt")
     if test == 6738
         println("Test real passed: $test")
     end
