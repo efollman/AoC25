@@ -43,10 +43,11 @@ function splitBeams(filepath::String)
             for j = 1:size(M,2)
                 if M[i,j] == 'S'
                     beamLine[j] = 1
+                    break
                 end
             end
         else
-            for j = 1:size(M,2)
+            for j = 2:size(M,2)-1
                 if M[i,j] == '^' && beamLine[j] > 0
                     beamLine[j-1] += beamLine[j]
                     beamLine[j+1] += beamLine[j]
@@ -69,7 +70,7 @@ function splitBeams(filepath::String)
 end
 
 function splitNum(filepath::String)
-    M::Matrix{Char},s::UInt = splitBeams(filepath)
+    _,s::UInt = splitBeams(filepath)
     #=for row in eachrow(M)
         println(join(row))
     end=#
