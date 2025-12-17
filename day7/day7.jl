@@ -55,11 +55,11 @@ function splitBeams(filepath::String)
                     beamLine[j+1] = true
                 end
             end
-            for j = 1:size(M,2)
+            #=for j = 1:size(M,2)
                 if beamLine[j] == true
                     M[i,j] = '|'
                 end
-            end
+            end=#
         end
 
         
