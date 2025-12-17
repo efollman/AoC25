@@ -79,12 +79,12 @@ function connectPoints(filepath::String)
                 push!(circuits[circuitN],nextlowest[2])
             elseif circuitN < circuitN2
                 for point in circuits[circuitN2]
-                    push!(circuits[circuitN],point)
+                    push!(circuits[circuitN],point) ##appending vectors together somehow is likely faster
                 end
                 deleteat!(circuits,circuitN2)
             elseif circuitN2 < circuitN
                 for point in circuits[circuitN]
-                    push!(circuits[circuitN2],point)
+                    push!(circuits[circuitN2],point) ##appending vectors together somehow is likely faster
                 end
                 deleteat!(circuits,circuitN)
             elseif circuitN == circuitN2
