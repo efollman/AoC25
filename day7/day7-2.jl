@@ -70,9 +70,9 @@ end
 
 function splitNum(filepath::String)
     M::Matrix{Char},s::UInt = splitBeams(filepath)
-    for row in eachrow(M)
+    #=for row in eachrow(M)
         println(join(row))
-    end
+    end=#
     println()
     return s
 end
