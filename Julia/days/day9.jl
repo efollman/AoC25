@@ -126,13 +126,15 @@ function day9()
 
         boundaryFill(100,100) #determined based on chart of compressed points won't work for example data could random seed and determine which is right by comparing the two different outputs on the edge, would be very slow though
                                 #Alternatively could somehow test if rec crosses the boundary for faster and easier result removing the necessity of shape fill.
+                                # wait a minute, if there is any trues other than the perimiter of the rectangle would tell you its not within green
+                                #this shouldnt have edge case either as some of the inner shape is garanteed to be within the rectangle?
         for i in eachindex(boolMat)
             if boolMat[i] == true
                 boolMatFill[i] = true
             end
         end
 
-        return boolMatFill
+        return boolMatFill, boolMat
     end
 
     
@@ -146,10 +148,20 @@ function day9()
 
     end
 
+    function isGreen2(p1::Vector{UInt},p2::Vector{UInt},boolMatperim::Matrix{Bool},xD::Dict{UInt,UInt},yD::Dict{UInt,UInt})
+            #Alternatively could somehow test if rec crosses the boundary for faster and easier result removing the necessity of shape fill.
+                                # wait a minute, if there is any trues other than the perimiter of the rectangle would tell you its not within green
+                                #this shouldnt have edge case either as some of the inner shape is garanteed to be within the rectangle?
+                                #only edge case would be a rectangle with no inner area, this would actually cause issues in this case test if all true?
+                                #=
+
+                                =#
+    end
+
     function maxRectangle(filepath::String)
         points::Matrix{UInt} = parsePoints(filepath)
         compPoints::Matrix{UInt}, xD::Dict{UInt,UInt}, yD::Dict{UInt,UInt} = compressPoints(points)
-        boolMat::Matrix{Bool} = createBooleanMat(compPoints)
+        boolMat::Matrix{Bool}, boolMatPerimiter::Matrix{Bool} = createBooleanMat(compPoints)
 
         maxArea::UInt = 0
         currArea::UInt = 0
