@@ -125,7 +125,7 @@ function day9()
         end
 
         boundaryFill(100,100) #determined based on chart of compressed points won't work for example data could random seed and determine which is right by comparing the two different outputs on the edge, would be very slow though
-
+                                #Alternatively could somehow test if rec crosses the boundary for faster and easier result removing the necessity of shape fill.
         for i in eachindex(boolMat)
             if boolMat[i] == true
                 boolMatFill[i] = true
