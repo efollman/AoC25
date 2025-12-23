@@ -3,7 +3,7 @@ global const inputExDIR = "$(@__DIR__)/../InputEx"
 global const scriptDIR = "$(@__DIR__)/days"
 
 function AoC25()
-    for i = 1:9
+    for i = 1:10
         include("$scriptDIR/day$i.jl")
     end
 end
@@ -21,5 +21,4 @@ function runAllDays()
     day8() #Really Slooooow
     day9()
 end
-
 #work on factoring out tests separately from day scripts
